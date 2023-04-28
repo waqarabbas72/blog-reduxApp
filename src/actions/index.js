@@ -1,10 +1,7 @@
-import React from 'react'
 import jsonPlaceholders from '../apis/jsonPlaceholders'
 
-export const fetchPosts = async () => {
+export const fetchPosts = () => async(dispatch) => {
     const response = await jsonPlaceholders.get('/posts')
-  return {
-    type : 'FETCH_POSTS',
-    payload : response
-  }
-}
+
+    dispatch({type : 'FETCH_POSTS' , payload : response})
+    };
